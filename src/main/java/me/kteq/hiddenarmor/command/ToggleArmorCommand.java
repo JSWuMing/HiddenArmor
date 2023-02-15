@@ -37,12 +37,12 @@ public class ToggleArmorCommand {
                     player = Bukkit.getPlayer(playerName);
 
                     if(player == null){
-                        sender.sendMessage(plugin.getPrefix() + "Player not found.");
+                        sender.sendMessage(plugin.getPrefix() + "未找到该玩家.");
                         return true;
                     }
                 }else {
                     if (sender instanceof ConsoleCommandSender) {
-                        sender.sendMessage(plugin.getPrefix() + "To use this command in console, you must specify the player name: /togglearmor <player>");
+                        sender.sendMessage(plugin.getPrefix() + "在控制台使用这个命令时，你必须输入玩家名字: /togglearmor <player>");
                         return true;
                     } else {
                         player = (Player) sender;
@@ -53,20 +53,20 @@ public class ToggleArmorCommand {
 
                 if(plugin.hasPlayer(player)){
                     plugin.removeHiddenPlayer(player);
-                    visibility = StrUtil.color("&bON");
+                    visibility = StrUtil.color("&b可见");
                 }else {
                     plugin.addHiddenPlayer(player);
-                    visibility =  StrUtil.color("&7OFF") ;
+                    visibility =  StrUtil.color("&7不可见") ;
                 }
 
-                if(!player.equals(sender)) sender.sendMessage(player.getName() + "'s armor visibility: " + visibility);
+                if(!player.equals(sender)) sender.sendMessage(player.getName() + "的装备切换为: " + visibility);
 
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent("Armor visibility: " + visibility));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent("装备可见度: " + visibility));
 
                 armorManager.updatePlayer(player);
 
                 return true;
             }
-        }.setCPermission("toggle").setUsage("/togglearmor").setDescription("Toggle armor invisibility");
+        }.setCPermission("toggle").setUsage("/togglearmor").setDescription("切换装备是否可见");
     }
 }
