@@ -26,7 +26,7 @@ public class HiddenArmorCommand {
                 }
                 if(arguments[0].equalsIgnoreCase("reload") && canUseArg(sender, "reload")){
                     plugin.reload();
-                    sender.sendMessage(plugin.getPrefix() + "Configuration reloaded!");
+                    sender.sendMessage(plugin.getPrefix() + "配置文件已更新!");
                     sender.sendMessage(plugin.getPrefix() + "NOTE: Default permissions changes need a server restart to be applied.");
                     return true;
                 }
@@ -36,7 +36,7 @@ public class HiddenArmorCommand {
 
             @Override
             public void sendUsage(CommandSender sender) {
-                sender.sendMessage(StrUtil.color("&cCommand not found, use '/hiddenarmor help' to list all commands available."));
+                sender.sendMessage(StrUtil.color("&c未知命令，请使用'/hiddenarmor help'来获取相关提示."));
             }
 
         }.setCPermission("");
@@ -47,18 +47,18 @@ public class HiddenArmorCommand {
 
         // togglearmor
         if(canUse(sender, "hiddenarmor.toggle") || plugin.isToggleDefault())
-            sender.sendMessage(StrUtil.color("&e/togglearmor &6- &fToggle your armor visibility"));
+            sender.sendMessage(StrUtil.color("&e/togglearmor &6- &f切换你的装备是否可见"));
 
         // togglearmor <player>
         if(canUse(sender ,"hiddenarmor.toggle.other"))
-            sender.sendMessage(StrUtil.color("&e/togglearmor <player> &6- &fToggle other player's armor visibility"));
+            sender.sendMessage(StrUtil.color("&e/togglearmor <player> &6- &f切换其他玩家的装备是否可见"));
 
         // hiddenarmor reload
         if(canUse(sender, "hiddenarmor.reload"))
-            sender.sendMessage(StrUtil.color("&e/hiddenarmor reload &6- &fReloads configuration"));
+            sender.sendMessage(StrUtil.color("&e/hiddenarmor reload &6- &f重载配置文件"));
 
         // help
-        sender.sendMessage(StrUtil.color("&e/hiddenarmor help &6- &fShows this help message"));
+        sender.sendMessage(StrUtil.color("&e/hiddenarmor help &6- &f展示当前帮助信息"));
 
         sender.sendMessage(StrUtil.color("&6----------------------------------------"));
     }
