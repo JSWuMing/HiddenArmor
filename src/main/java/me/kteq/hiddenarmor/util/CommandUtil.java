@@ -92,7 +92,7 @@ public abstract class CommandUtil extends BukkitCommand implements CommandExecut
     public boolean execute(CommandSender sender, String alias, String [] arguments){
         String permission = getPermission();
         if(!defaultPermission && permission != null && !sender.hasPermission(permission) && !sender.isOp()){
-            sender.sendMessage(StrUtil.color("&cYou don't have permission to execute this command."));
+            sender.sendMessage(StrUtil.color("&c你没有权限使用这个命令."));
             return true;
         }
 
@@ -102,14 +102,14 @@ public abstract class CommandUtil extends BukkitCommand implements CommandExecut
         }
 
         if(playerOnly && !(sender instanceof Player)){
-            sender.sendMessage(StrUtil.color("&cOnly players can use this command."));
+            sender.sendMessage(StrUtil.color("&c只有玩家才可以使用该命令."));
             return true;
         }
 
         if (cooldownPlayers != null && sender instanceof Player){
             Player player = (Player) sender;
             if(cooldownPlayers.contains(player.getUniqueId())){
-                sender.sendMessage(StrUtil.color("&cPlease, wait before using this command again."));
+                sender.sendMessage(StrUtil.color("&c请稍后重试."));
                 return true;
             }
 
