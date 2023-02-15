@@ -4,7 +4,7 @@
 
 # Invisibility potion effect related section
 invisibility-potion:
-  # If players with the invisibility potion effect should always have their gear invisible as well.
+  # 隐身时是否隐藏装备.
   always-hide-gear: false
 
 # Equipments to be ignored and not hidden section
@@ -13,7 +13,7 @@ ignore:
   # It is recommended to set this to true due to powder snow issues caused when the leather armor is hidden.
   leather-armor: true
 
-  # Set this to true if you want to let your players show off their turtle helmet even when their armor is hidden.
+  # 是否隐藏海龟壳.
   turtle-helmet: false
 
   # Set this to true if you want elytras to never be hidden.
@@ -27,11 +27,13 @@ default-permissions:
   # Command: /togglearmor
   # Description: Toggle the player's own armor visibility
   # Permission: hiddenarmor.toggle
+  #玩家是否可以用/togglearmor 来切换装备可见度
   toggle: true
 
   # Command: /togglearmor <player>
   # Description: Toggle other player's armor visibility
   # Permission: hiddenarmor.toggle.other
+  #玩家是否可以用/togglearmor <player> 来切换其他玩家的可见度
   toggle-other: false
 
 # Used to inform when a new config update is available, don't change this
